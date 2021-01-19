@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 const UniqueImages = () => {
-    const [inputVal, setVal] = useState("");
-    const [imageSrc, setSrc] = useState("");
+  const [inputVal, setVal] = useState("");
+  const [imageSrc, setSrc] = useState("");
 
+  useEffect(() => {
+    setSrc(`https://robohash.org/${inputVal}`);
+  }, [inputVal]);
 
-    useEffect(() => {
-        setSrc(`https://robohash.org/${inputVal}`);
+  return (
+    <>
+      <input
+        type="search"
+        onChange={({ target: { value } }) => setVal(value)}
+      />
+      {inputVal && <img alt="sjhg" src={imageSrc}></img>}
+    </>
+  );
+};
 
-    }, [inputVal])
-
-
-    return (
-         <> 
-             <input type="search"  onChange = {({target:{value}}) => setVal(value)}/> 
-            { (inputVal) &&<img alt="sjhg" src={imageSrc}></img>}
-         </> 
-    );
-}
- 
 export default UniqueImages;
