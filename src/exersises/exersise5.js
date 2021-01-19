@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 const RanomProfile = () => {
   const [data, setData] = useState([]);
 
-  const controller = new AbortController();
-  const { signal } = controller;
-
   useEffect(() => {
+    const controller = new AbortController();
+    const { signal } = controller;
+
     fetch("https://randomuser.me/api/", { signal })
       .then((res) => res.json())
       .then(({ results }) => setData(results))
